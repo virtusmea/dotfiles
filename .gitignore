@@ -1,0 +1,33 @@
+# --- System & OS-spezifische Dateien ---
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.tmp
+
+# --- Paketmanager & Backups ---
+# Falls du Paketlisten oder AUR-Builds lokal im Ordner speicherst
+*.pkg.tar.zst
+*.src.tar.gz
+/src/
+/pkg/
+
+# --- Hyprland & Wayland Caches / Logs ---
+# Hyprland erstellt manchmal Absturzberichte oder Caches
+core
+*.log
+hyprland.log
+.cache/
+
+# --- Sensible Daten & Geheimnisse (Extrem wichtig!) ---
+# Hier sperrst du alle Dateien, in denen Passwörter, API-Keys oder private Skripte liegen könnten
+*.env
+*.secret
+*secret*
+credentials*
+/private/
+
+# --- Python / Node Caches (falls du Skripte für Waybar nutzt) ---
+__pycache__/
+*.pyc
+node_modules/
