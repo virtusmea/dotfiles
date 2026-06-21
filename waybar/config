@@ -138,7 +138,8 @@
         "states": {
             // "good": 95,
             "warning": 30,
-            "critical": 15
+            "critical": 15,
+	    "maximum": 75
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
@@ -147,8 +148,9 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
+        "format-icons": ["", "", "", "", ""],
+	"on-update": "if [ \"$(cat /sys/class/power_supply/BAT0/status)\" = \"Full\" ]; then notify-send -u critical 'Akku-Limit' 'Schwelle erreicht: Erhaltungsbetrieb aktiv!'; fi"
+ },
     "battery#bat2": {
         "bat": "BAT2"
     },

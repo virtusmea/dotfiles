@@ -117,22 +117,38 @@ button:hover {
     background-color: #64727D;
 }
 
-#battery {
+#battery, #battery.plugged {
     background-color: #ffffff;
     color: #000000;
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging {
     color: #ffffff;
     background-color: #26A65B;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
+        background-color: #ffffff; 
         color: #000000;
     }
 }
+
+@keyframes blink-maximum {
+    0% {
+	background-color: #26A65B; /* Grün */
+	color: #ffffff;
+    }
+    50% {
+        background-color: #f53c3c; /* Rot */
+        color: #ffffff;
+    }
+    100% {
+        background-color: #26A65B; /* Wieder Grün */
+        color: #ffffff;
+    }
+}
+
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
@@ -145,6 +161,12 @@ button:hover {
     animation-direction: alternate;
 }
 
+#battery.maximum {
+    animation-name: blink-maximum;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 #power-profiles-daemon {
     padding-right: 15px;
 }
